@@ -546,6 +546,21 @@ button {
     background: white;
 }
 
+.singularitytabbtn {
+    color: #b341e0;
+    background: black;
+    border: 2px solid #b341e0;
+    font-weight: bold;
+    border-radius: 4px;
+    transition-duration: 0.2s;
+    cursor: pointer;	
+}
+
+.singularitytabbtn:hover {
+    color: #511568;
+    background: white;
+}
+
 .achievementhidden {
     background-image: url("../images/achhidden.png") !important;
     background-color: #555;
