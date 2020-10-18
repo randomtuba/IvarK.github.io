@@ -109,6 +109,53 @@ if (player.infinitied > 0 && !player.challenges.includes("challenge1")) player.c
   if (player.timeDimension8 === undefined) player.timeDimension8 = {cost: new Decimal("1e3350"), amount: new Decimal(0), power: new Decimal(1), bought: 0 }
   if (player.why === undefined) player.why = 0
   if (player.options.animations === undefined) player.options.animations = {floatingText: true, bigCrunch: true, eternity: true, tachyonParticles: true}
+  if (player.singularity_mod === undefined) {
+      player.singularity_mod = {
+        // Singularity
+        singularities: new Decimal(0),
+        singularity_time: 0,
+        singularity_points: new Decimal(0),
+        singularity_power: new Decimal(0),   
+        singularity_dimensions: ['NULL', new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
+        sb_selected: 0,
+        singularity_upgs: ['NULL',],
+        
+        // Black Hole
+        black_hole_energy: new Decimal (0),
+        black_hole_power: new Decimal (0),
+        black_hole_rewards: 0,
+
+        // Space Studies
+        space_theorems: new Decimal (0),
+        space_sources: ['NULL', 0, 0, 0],
+
+        // Singularity Challenges
+        sc_unlocked: false,
+        sc_completions: ['NULL', 0,0,0,0,0,0,0,0,0,0],
+        sc_unlocks: ['NULL', false, false, false, false, false, false, false, false, false, false],
+        sc_enters: ['NULL', false, false, false, false, false, false, false, false, false, false],
+        
+        // Powers
+        powers_unlocked: {
+            infinity: ['NULL', false, false, false, false, false],
+            eternity: ['NULL', false, false, false, false, false],
+            singularity: ['NULL', false, false, false, false, false]
+        },
+        activated_powers: ['NULL', false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+
+        // Void
+        void_unlocked: false,
+        void_shards: new Decimal (0),
+        void_power: new Decimal (0),
+        void_upgrades: ['NULL',],
+
+        // Photons
+        photons_unlocked: false,
+        photons: [new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0)],
+        photonic_boosters: [0,0,0,0,0,0,0],
+    };
+  }
+
   setTheme(player.options.theme);
 
   sliderText.textContent = "Update rate: " + player.options.updateRate + "ms";
