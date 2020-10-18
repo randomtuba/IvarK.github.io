@@ -46,7 +46,7 @@
         <div style="position: relative">
             <button id="postInfinityButton" class="postinfcrunch">Big Crunch for x Infinity Points</button>
             <button id="newDimensionButton" class="newdim" onclick="newDimension()">Get x antimatter to unlock a new Dimension.</button>
-            <button id="eternitybtn" class="eternitybtn" onclick="eternity()">Other times await.. I need to become Eternal</button>
+            <button id="eternitybtn" class="eternitybtn" onclick="eternity()">Other times await... I need to become Eternal</button>
         </div>
         <div id="coinsPerSec">You are getting 0 antimatter per second.</div>
 
@@ -68,14 +68,24 @@
             <button id="challengesbtn" style="font-family: Typewriter; font-size: 20px" class="tabbtn">Challenges</button>
             <button id="infinitybtn" style="font-family: Typewriter; font-size: 20px; display: none" class="infinitybtn">Infinity</button>
             <button id="eternitystorebtn" style="font-family: Typewriter; font-size: 20px; display: none" class="eternitytabbtn">Eternity</button>
-	<button id="singularitybtn" style="font-family: Typewriter; font-size: 20px; display: none" class="singularitytabbtn">Singularity</button>
+	        <button id="singularitybtn" style="font-family: Typewriter; font-size: 20px;" class="singularitytabbtn">Singularity</button>
             <button id="shopbtn" style="font-family: Typewriter; font-size: 20px" class="tabbtn">Shop</button>
         </div>
         <div id="emptiness" class="tab" style="font-size: 150%">
             <br> The world has collapsed on itself due to excess of antimatter.
-            <br>
+            <br> <!---->
             <br>
         </div>
+        <div id="singularity" class="tab" style="font-size: 15px; margin: 0 auto; display: none" align="center">
+            <table class="table" align="center" style="margin: auto">
+                <tr>
+                    <td><button class="secondarytabbtn" onclick="showSingularityTab('singularityupgs')">Singularity Upgrades</button></td>
+                    <td><button class="secondarytabbtn" onclick="showSingularityTab('blackhole')">Black Hole</button></td>
+                    <td><button class="secondarytabbtn" onclick="showSingularityTab('powers')" id="powersTabbtn">Powers</button></td>
+                    <td><button class="secondarytabbtn" onclick="showSingularityTab('void')" id="voidTabbtn">The Void</button></td>
+                </tr>
+            </table>
+            <div class="eternitytab" id="timestudies" style="font-size: 15px"> 
         <div id="shop" class="tab" style="font-size: 15px" >
             <div align="center">
                 <br>
@@ -977,6 +987,15 @@
                 </table>
             </div>
         </div>
+
+        <!-- SINGULARITY TAB -->
+
+        <div id='singularity' class='tab'>
+            <p>
+                Singularity Here
+            </p>
+        </div>
+
         <div id="options" class="tab" align="center">
             <br>
             <table>
