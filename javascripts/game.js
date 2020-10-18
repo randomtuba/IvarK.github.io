@@ -16,6 +16,54 @@ var TIER_NAMES = [ null, "first", "second", "third", "fourth", "fifth", "sixth",
 var DISPLAY_NAMES = [ null, "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth" ];
 var forceHardReset = false;
 var player = {
+
+    // Singularity Player Data
+
+    singularity_mod: {
+        // Singularity
+        singularities: new Decimal(0),
+        singularity_time: 0,
+        singularity_points: new Decimal(0),
+        singularity_power: new Decimal(0),   
+        singularity_dimensions: ['NULL', new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
+        sb_selected: 0,
+        singularity_upgs: ['NULL',],
+        
+        // Black Hole
+        black_hole_energy: new Decimal (0),
+        black_hole_power: new Decimal (0),
+        black_hole_rewards: 0,
+
+        // Space Studies
+        space_theorems: new Decimal (0),
+        space_sources: ['NULL', 0, 0, 0],
+
+        // Singularity Challenges
+        sc_unlocked: false,
+        sc_completions: ['NULL', 0,0,0,0,0,0,0,0,0,0],
+        sc_unlocks: ['NULL', false, false, false, false, false, false, false, false, false, false],
+        sc_enters: ['NULL', false, false, false, false, false, false, false, false, false, false],
+        
+        // Powers
+        powers_unlocked: {
+            infinity: ['NULL', false, false, false, false, false],
+            eternity: ['NULL', false, false, false, false, false],
+            singularity: ['NULL', false, false, false, false, false]
+        },
+        activated_powers: ['NULL', false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+
+        // Void
+        void_unlocked: false,
+        void_shards: new Decimal (0),
+        void_power: new Decimal (0),
+        void_upgrades: ['NULL',],
+
+        // Photons
+        photons_unlocked: false,
+        photons: [new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0), new Decimal (0)],
+        photonic_boosters: [0,0,0,0,0,0,0],
+    },
+
     money: new Decimal(10),
     tickSpeedCost: new Decimal(1000),
     tickspeed: new Decimal(1000),
@@ -1598,6 +1646,11 @@ function galaxyReset() {
     autoS = true;
     if (player.sacrificed == 0) giveAchievement("I don't believe in Gods");
     player = {
+
+        // Singularity Player Data
+
+        singularity_mod: player.singularity_mod,
+
         money: player.achievements.includes("r111") ? player.money : new Decimal(10),
         tickSpeedCost: new Decimal(1000),
         tickspeed: new Decimal(1000),
@@ -2824,6 +2877,9 @@ document.getElementById("bigcrunch").onclick = function () {
         auto = autoS; //only allow autoing if prev crunch was autoed
         autoS = true;
         player = {
+
+            singularity_mod: player.singularity_mod,
+
             money: new Decimal(10),
             tickSpeedCost: new Decimal(1000),
             tickspeed: new Decimal(1000),
@@ -3121,6 +3177,9 @@ function eternity(force, auto) {
         }
         player.challenges = temp
         player = {
+
+            singularity_mod: player.singularity_mod,
+
             money: new Decimal(10),
             tickSpeedCost: new Decimal(1000),
             tickspeed: new Decimal(1000),
@@ -3432,6 +3491,9 @@ function startChallenge(name, target) {
   if(player.options.challConf || name == "" ? true : (name.includes("post")) ? confirm("You will start over with just your infinity upgrades, and achievements. You need to reach a set goal with special conditions. NOTE: The rightmost infinity upgrade column doesn't work on challenges.") : confirm("You will start over with just your infinity upgrades, and achievements. You need to reach infinity with special conditions. NOTE: The rightmost infinity upgrade column doesn't work on challenges.")) {
     if (player.currentChallenge != "") document.getElementById(player.currentChallenge).textContent = "Start"
     player = {
+
+        singularity_mod: player.singularity_mod,
+
         money: new Decimal(10),
         tickSpeedCost: new Decimal(1000),
         tickspeed: new Decimal(1000),
@@ -3921,6 +3983,9 @@ function startEternityChallenge(name, startgoal, goalIncrease) {
     if (player.eternityChallUnlocked == 0 || parseInt(name.split("c")[1]) !== player.eternityChallUnlocked) return
     if((player.options.challConf) || name == "" ? true :  (confirm("You will start over with just your time studies, eternity upgrades and achievements. You need to reach a set IP with special conditions."))) {
         player = {
+
+            singularity_mod: player.singularity_mod,
+
             money: new Decimal(10),
             tickSpeedCost: new Decimal(1000),
             tickspeed: new Decimal(1000),
@@ -5724,6 +5789,9 @@ function init() {
     document.getElementById('infinitybtn').onclick = function () {
         showTab('infinity');
     };
+    document.getElementById('singularitybtn').onclick = function () {
+        showTab('singularity');
+    }
     document.getElementById("shopbtn").onclick = function () {
         showTab('shop')
         kong.updatePurchases();
@@ -5948,3 +6016,8 @@ setInterval( function() {
         ec10bonus = new Decimal(1)
     }
 }, 100)
+
+
+function showSingularityTab(tab) {
+
+}
